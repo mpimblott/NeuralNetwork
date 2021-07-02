@@ -1,5 +1,5 @@
 import numpy as np
-from sigmoid import sigmoid, sigmoid_derivative
+from activation_functions import sigmoid, sigmoid_derivative
 from loss_functions import sose
 
 
