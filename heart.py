@@ -5,6 +5,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import csv
 import pandas as pd
+from train_test_split import train_test_split
+
 
 headers = ['age', 'sex', 'chest_pain', 'resting_blood_pressure',
         'serum_cholestoral', 'fasting_blood_sugar', 'resting_ecg_results',
@@ -27,7 +29,10 @@ def process():
 
     # convert the targets into a 1d array
     y = heart_df['heart_disease'].values.reshape(x.shape[0], 1)
-    new = x.iloc[[1, 3, 4]].copy()
-    print(new)
+
+    # split the data into training and testing data
+    x_train, x_test, y_train, y_test = train_test_split(x, y, 0.2)
+    print(y_test.shape)
+
 
 process()
