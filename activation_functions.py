@@ -7,3 +7,7 @@ def sigmoid(x):
 
 def sigmoid_derivative(x):
     return np.exp(-x)/((1 + np.exp(-x)) ** 2)
+
+
+def relu(x):
+    return np.maximum(0, x)

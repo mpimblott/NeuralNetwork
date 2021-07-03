@@ -11,3 +11,19 @@ def sose(y, yhat):
         sigma += (y[i] - yhat[i])**2
 
     return sigma
+
+
+# cross-entropy loss -----------------------
+def eta(self, x):
+    ETA = 0.0000000000001
+    return np.maximum(x, ETA)
+
+
+def entropy_loss(self, y, yhat):
+    nsample = len(y)
+    yhat_inv = 1.0 - yhat
+    y_inv = 1.0 - y
+    yhat = eta(yhat)
+    yhat_inv = eta(yhat_inv)
+    loss = -1 / nsample * (np.sum(np.multiply(np.log(yhat), y) + np.multiply(y_inv, np.log(yhat_inv))))
+    return loss

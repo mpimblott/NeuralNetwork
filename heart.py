@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import csv
 import pandas as pd
 from train_test_split import train_test_split
+from sklearn.preprocessing import StandardScaler
 
 
 headers = ['age', 'sex', 'chest_pain', 'resting_blood_pressure',
@@ -32,7 +33,16 @@ def process():
 
     # split the data into training and testing data
     x_train, x_test, y_train, y_test = train_test_split(x, y, 0.2)
-    print(y_test.shape)
 
+    # standardise data
+    sc = StandardScaler()
+    sc.fit(x_train)
+    x_train = sc.transform(x_train)
+    x_test = sc.transform(x_test)
 
-process()
+    print(f"Shape of train set is {x_train.shape}")
+    print(f"Shape of test set is {x_test.shape}")
+    print(f"Shape of train label is {y_train.shape}")
+    print(f"Shape of test labels is {y_test.shape}")
+
+    return x_train, x_test, y_train, y_test
