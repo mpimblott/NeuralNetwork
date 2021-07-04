@@ -14,12 +14,12 @@ def sose(y, yhat):
 
 
 # cross-entropy loss -----------------------
-def eta(self, x):
+def eta(x):
     ETA = 0.0000000000001
     return np.maximum(x, ETA)
 
 
-def entropy_loss(self, y, yhat):
+def entropy_loss(y, yhat):
     nsample = len(y)
     yhat_inv = 1.0 - yhat
     y_inv = 1.0 - y

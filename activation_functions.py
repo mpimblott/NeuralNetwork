@@ -11,3 +11,10 @@ def sigmoid_derivative(x):
 
 def relu(x):
     return np.maximum(0, x)
+
+
+def dRelu(x):
+    if x > 1:
+        return 1
+    else:
+        return 0
